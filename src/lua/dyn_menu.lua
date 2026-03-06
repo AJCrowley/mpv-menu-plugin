@@ -1,6 +1,8 @@
 -- Copyright (c) 2023-2024 tsl0922. All rights reserved.
 -- SPDX-License-Identifier: GPL-2.0-only
 
+-- https://github.com/tsl0922/mpv-menu-plugin/blob/main/src/lua/dyn_menu.lua
+
 local opts = require('mp.options')
 local utils = require('mp.utils')
 local msg = require('mp.msg')
@@ -247,7 +249,7 @@ local function build_track_items(list, type, prop, prefix)
             if track.selected and track.id == pos then
                 state[#state + 1] = 'checked'
                 if type == 'sub' then
-                    if (prop == 'sid' and not get('sub-visibility')) or
+                    if (prop == 'sid' and not get('sub-visibility')) or 
                         (prop == 'secondary-sid' and not get('secondary-sub-visibility'))
                     then
                         state[#state + 1] = 'disabled'
